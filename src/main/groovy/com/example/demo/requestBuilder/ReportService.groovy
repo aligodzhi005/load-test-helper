@@ -21,7 +21,7 @@ class ReportService {
     private static final def logger = LoggerFactory.getLogger(ReportService)
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss")
 
-    @Value('${report.url:http://localhost:8080/api/echo}')
+    @Value('${report.module.url:http://localhost:8080/api/echo}')
     private String reportUrl
 
     private final RestTemplate restTemplate = new RestTemplate()
@@ -51,9 +51,10 @@ class ReportService {
             [file: "comTest.json", names: false],
             [file: "ingressEgress.json", names: false]
         ],
-        (TestType.Negative)    : [
+        (TestType.Negative) : [
                 [file: "services.json", names: true],
-                [file: "comTest.json", names: false]
+                [file: "compTest.json", names: false],
+                [file: "ingressEgress.json", names: false]
         ]
     ]
 
