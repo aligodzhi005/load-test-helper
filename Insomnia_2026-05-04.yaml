@@ -1,0 +1,151 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1777314152416
+  modified: 1777314152416
+  description: ""
+collection:
+  - name: load-test-helper
+    meta:
+      id: fld_82889e8c150441f883894a56abfbf97f
+      created: 1777895011648
+      modified: 1777895028092
+      sortKey: -1777895011648
+      description: ""
+    children:
+      - url: http://localhost:8088/test/create
+        name: Создание теста
+        meta:
+          id: req_daa591f4b68544929e92125d5dd9aec3
+          created: 1777314181259
+          modified: 1777895022531
+          isPrivate: false
+          description: ""
+          sortKey: -1777895015673
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"releaseKey": "Website-123",
+              "stand": "stand-1",
+              "duration": 30,
+              "server": ["server01", "server22"],
+              "profile": "script01",
+            	"status": "InProgress",
+              "testType": "Reliability"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8088/test/info
+        name: Список тестов
+        meta:
+          id: req_c03f97a3398e439a9694cdb4c7bff73f
+          created: 1777322618785
+          modified: 1777895361533
+          isPrivate: false
+          description: ""
+          sortKey: -1777895015973
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8088/test/info
+        name: Изменение статуса теста
+        meta:
+          id: req_79f63cb72f7849f79f16ef2187c7a55e
+          created: 1777653579124
+          modified: 1777895019301
+          isPrivate: false
+          description: ""
+          sortKey: -1777895015873
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8088/test/create
+        name: Создание теста 2
+        meta:
+          id: req_950af1b5194e43afada805648fef0cf7
+          created: 1777894785886
+          modified: 1777895756985
+          isPrivate: false
+          description: ""
+          sortKey: -1777895015573
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"releaseKey": "Website-123",
+              "stand": "stand-1",
+              "duration": 30,
+              "server": ["server01", "server22"],
+              "profile": "script01",
+            	"status": "InProgress",
+              "testType": "Negative",
+            	"pageId": "2341098123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1777314170219
+    modified: 1777314170219
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1777314170216
+    modified: 1777314170216
+    isPrivate: false
