@@ -13,6 +13,11 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 import com.example.demo.test.TestType
+import org.apache.hc.client5.http.impl.classic.HttpClients
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder
+import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactoryBuilder
+import org.apache.hc.core5.ssl.SSLContextBuilder
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory
 
 import java.time.format.DateTimeFormatter
 
