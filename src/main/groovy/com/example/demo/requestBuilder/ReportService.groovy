@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 import com.example.demo.test.TestType
@@ -23,6 +24,27 @@ class ReportService {
 
     @Value('${report.module.url:http://localhost:8080/api/echo}')
     private String reportUrl
+
+    RestTemplate restTemplate() {
+        def sslContext = SSLContextBuilder.create()
+                .loadTrustMaterial(null, (chain, authType) -> true) // доверяем всем сертификатам
+                .build()
+
+        def connectionManager = PoolingHttpClientConnectionManagerBuilder.create()
+                .setSSLSocketFactory(
+                        SSLConnectionSocketFactoryBuilder.create()
+                                .setSslContext(sslContext)
+                                .setHostnameVerifier((hostname, session) -> true) // отключаем проверку hostname
+                                .build()
+                )
+                .build()
+
+        def httpClient = HttpClients.custom()
+                .setConnectionManager(connectionManager)
+                .build()
+
+        return new RestTemplate(new HttpComponentsClientHttpRequestFactory(httpClient))
+    }
 
     private final RestTemplate restTemplate = new RestTemplate()
 
