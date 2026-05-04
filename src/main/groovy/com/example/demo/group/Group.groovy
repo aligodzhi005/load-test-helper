@@ -29,7 +29,7 @@ class Group {
     @Column(name="profile", nullable=false)
     String profile
 
-    @Column(name="server", nullable=false)
+    @Column(name="server")
     String server
 
     @Column(name="masterRun")

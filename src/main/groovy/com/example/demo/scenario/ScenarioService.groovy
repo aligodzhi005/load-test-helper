@@ -30,8 +30,8 @@ class ScenarioService {
             def group = new Group(
                     scenario: scenario,
                     profile: groupDTO.profile,
-                    server: groupDTO.server,
-                    masterRun: groupDTO.masterRun ?: true,
+                    server: groupDTO.server ?: null,
+                    masterRun: groupDTO.masterRun != null ? groupDTO.masterRun: true,
                     domain: groupDTO.domain ?: null,
                     duration: groupDTO.duration ?: null,
                     certificate: groupDTO.certificate ?: null,
